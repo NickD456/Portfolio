@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Video Game Design Portfolio</title>
+    <link id="theme-link" rel="stylesheet" href="styles-light.css"> <!-- Link to the dark mode CSS file by default -->
+</head>
+<body onload="setTheme()">
+    <header>
+        <div class="container">
+            <h1>Contact Information</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="game1.html">Game Title 1</a></li>
+                    <li><a href="Art.html">Art</a></li>
+                   
+                    <!-- Add more game links as needed -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+            <!-- Content for the contact page goes here -->
+            <h2>Get in Touch</h2>
+            <p>If you have any questions or would like to discuss potential roles, please reach out to me through one of the following methods:</p>
+            <ul>
+                <li>Email: <a href="mailto:nicholasd456789@gmail.com">NicholasD456789@gmail.com</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/nick-decinto/" target="_blank">linkedin.com/in/nick-decinto/</a></li>
+                
+                <!-- Add more contact methods as needed -->
+            </ul>
+        </div>
+    </div>
+    <script>
+        function setTheme() {
+            const theme = localStorage.getItem('theme');
+            const themeLink = document.getElementById('theme-link')
