@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Game Design Portfolio</title>
+    <link id="theme-link" rel="stylesheet" href="styles-light.css"> <!-- Link to the dark mode CSS file by default -->
+</head>
+<body>
+    <header>
+        <div class="container">
+		
+            <h1>Video Game Design Portfolio</h1>
+            <nav>
+                <ul>
+				
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="game1.html">Game Title 1</a></li>
+                    <li><a href="game2.html">Game Title 2</a></li>
+					
+                    <!-- Add more game links as needed -->
+                </ul>
+				
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+            <!-- Content for the home page goes here -->
+			<p><button id="theme-toggle">Toggle Dark/Light Mode</button></p>
+            <p>Welcome to my portfolio showcasing my passion for video game design!</p>
+			
+            <div class="game">
+                <h2>Game Title 1</h2>
+                <p>Description of Game 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et lacus commodo, tincidunt lectus sed, tempor lorem.</p>
+                <a href="game1.html"><img src="game1-screenshot.jpg" alt="Game 1 Screenshot"></a>
+            </div>
+            <div class="game">
+                <h2>Game Title 2</h2>
+                <p>Description of Game 2. Integer nec libero et arcu gravida finibus. Phasellus vestibulum placerat est a venenatis.</p>
+                <a href="game2.html"><img src="game2-screenshot.jpg" alt="Game 2 Screenshot"></a>
+            </div>
+            <!-- Add more game sections as needed -->
+        </div>
+    </div>
+	<script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeLink = document.getElementById('theme-link');
+
+        themeToggle.addEventListener('click', function() {
+            if (themeLink.getAttribute('href') === 'styles-light.css') {
+                themeLink.setAttribute('href', 'styles-dark.css');
+            } else {
+                themeLink.setAttribute('href', 'styles-light.css');
+            }
+        });
+    </script>
+</body>
+</html>
