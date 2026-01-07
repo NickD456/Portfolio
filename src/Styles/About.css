@@ -165,3 +165,31 @@
         margin: 0 auto; 
     }
 }
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;    /* This allows tags to go to the next line */
+    justify-content: center;
+    gap: 0.8rem;        /* Space between tags */
+    margin-top: 1.5rem;
+}
+.education-card {
+    padding: 1.5rem;
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%; /* Ensures it matches the visual column width */
+}
+
+.edu-header h4 {
+    color: var(--neon-cyan);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.edu-meta {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
