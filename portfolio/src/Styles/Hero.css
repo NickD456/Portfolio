@@ -1,0 +1,208 @@
+
+.hero-container {
+    position: relative;
+    width: 100vw;
+    min-height: 120vh;
+    overflow: hidden;
+    background: #05070c; /* Deep space background color */
+}
+
+/* Background layer for the starfield effect */
+.starfield {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Places content above the starfield */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding-bottom: 20vh;
+    text-align: center;
+    color: #fff;
+}
+
+/* Bottom fade transition: Creates a smooth visual blend into the next section */
+.hero-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, #05070c);
+    pointer-events: none;
+}
+
+.name {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    /* Animated Gradient Text Effect */
+    background: linear-gradient(270deg, #7f00ff, #00ffff, #ff007f, #7f00ff);
+    background-size: 600% 600%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+/* Logic for shifting the background-position to animate the text colors */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.intro, .subtitle {
+    opacity: 0.8;
+    margin: 0;
+}
+
+.intro { font-size: 1.5rem; }
+.subtitle { font-size: 1.8rem; font-weight: normal; }
+
+.cta-button {
+    margin-top: 28px;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: linear-gradient(135deg, rgba(120, 80, 255, 0.35), rgba(60, 140, 255, 0.35));
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 25px rgba(120, 80, 255, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(120, 80, 255, 0.6);
+}
+
+.featured-projects {
+    position: relative;
+    padding: 8rem 2rem;
+    background: #05070c;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Ambient Nebula/Star Background */
+.featured-projects::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 0.6px, transparent 1px);
+    background-size: 90px 90px, 220px 220px;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    text-align: center;
+    z-index: 1;
+}
+
+.projects-grid {
+    display: grid;
+    /* Cards wrap automatically based on screen width */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    width: 100%;
+    margin-bottom: 100px;
+    z-index: 1;
+}
+
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Interactive hover logic for cards */
+.project-card-link:hover .project-card {
+    transform: translateY(-10px);
+    border-color: #00f2ff;
+    box-shadow: 0 10px 40px rgba(0, 242, 255, 0.15);
+}
+
+.project-image-wrapper {
+    height: 200px;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures images maintain aspect ratio without cropping */
+    padding: 15px;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+.project-summary {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.tech-tag {
+    font-size: 0.75rem;
+    background: rgba(0, 242, 255, 0.1);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    color: #00f2ff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+/* Highlights all tags in the card when the card is hovered */
+.project-card-link:hover .tech-tag {
+    background: rgba(0, 242, 255, 0.2);
+    border-color: #00f2ff;
+}

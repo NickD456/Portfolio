@@ -1,0 +1,94 @@
+/* Using the same variables for global consistency */
+:root {
+    --footer-bg: #05070c;
+    --neon-purple: #7f00ff;
+    --neon-cyan: #00f2ff;
+    --text-muted: #777;
+    --transition: all 0.3s ease;
+}
+
+.footer-container {
+    position: relative;
+    width: 100%;
+    background: var(--footer-bg);
+    color: #fff;
+    padding: 60px 20px 40px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Subtle Star Background created via CSS pseudo-element */
+.footer-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(white 0.5px, transparent 1px),
+        radial-gradient(white 0.7px, transparent 1px);
+    background-size: 80px 80px, 150px 150px;
+    opacity: 0.1;
+    pointer-events: none; /* Ensures the background doesn't block link clicks */
+}
+
+.footer-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; /* Increased gap for better tap targets on mobile */
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-links a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+/* Hover effects for social links */
+.footer-links a:hover {
+    color: var(--neon-cyan);
+    transform: translateY(-3px);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.footer-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%); /* Inverting to make dark icons appear white */
+    transition: var(--transition);
+}
+
+/* Sync icon color with hover state using CSS filters */
+.footer-links a:hover .footer-icon {
+    filter: invert(75%) sepia(80%) saturate(2000%) hue-rotate(160deg);
+}
+
+.footer-copy {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Responsive layout adjustments for mobile */
+@media (max-width: 600px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+}

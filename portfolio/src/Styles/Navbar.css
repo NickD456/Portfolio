@@ -1,0 +1,138 @@
+:root {
+    --nav-bg: rgba(5, 7, 12, 0.4);
+    --nav-blur: blur(8px);
+    --nav-border: rgba(255, 255, 255, 0.1);
+    --transition-fast: all 0.25s ease;
+}
+
+.top-bar {
+    /* Fixed floating position at the top center of the viewport */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* High z-index ensures it floats above all other page content */
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    width: auto;
+    max-width: 95%;
+    height: 54px;
+    padding: 0 2rem;
+    
+    /* Glassmorphism: Translucent background with a blur filter */
+    background: var(--nav-bg);
+    backdrop-filter: var(--nav-blur);
+    border: 1px solid var(--nav-border);
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.nav-logo {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-right: 2rem;
+    opacity: 0.9;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 0;
+    transition: var(--transition-fast);
+}
+
+/* Hover & Active States Consolidated */
+.nav-links a:hover, 
+.nav-links a.active {
+    color: var(--neon-cyan);
+}
+
+/* Visual feedback for the currently selected route */
+.nav-links a.active {
+    text-shadow: 0 0 10px var(--neon-glow);
+}
+
+/* Underline Indicator for the active link using a pseudo-element */
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--neon-cyan);
+    box-shadow: 0 0 8px var(--neon-cyan);
+    border-radius: 2px;
+}
+
+.nav-resume-wrapper {
+    margin-left: 1rem;
+}
+
+.resume-btn {
+    padding: 7px 18px;
+    background: rgba(0, 242, 255, 0.05);
+    border: 1px solid rgba(0, 242, 255, 0.4);
+    border-radius: 8px;
+    color: var(--neon-cyan);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.resume-btn:hover {
+    background: rgba(0, 242, 255, 0.15);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px var(--neon-glow);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    /* Reduces spacing and font sizes to fit smaller mobile screens */
+    .top-bar {
+        padding: 0 1.2rem;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1.2rem;
+    }
+
+    .nav-logo {
+        margin-right: 0.5rem;
+    }
+
+    .nav-links a {
+        font-size: 0.75rem;
+    }
+
+    .resume-btn {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+}

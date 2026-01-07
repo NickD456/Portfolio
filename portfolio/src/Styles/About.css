@@ -1,0 +1,167 @@
+
+:root {
+    /* Theme Colors & Glows */
+    --neon-cyan: #00f2ff;
+    --neon-glow: rgba(0, 242, 255, 0.4);
+    
+    /* Glassmorphism Effect*/
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --border-light: rgba(255, 255, 255, 0.1);
+}
+
+.about-container {
+    position: relative;
+    min-height: 100vh;
+    padding: 10rem 2rem 5rem;
+    background: #05070c; /* Deep space dark blue */
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Centered content wrapper */
+.about-content, .about-main-row {
+    margin: 0 auto;
+    display: flex;
+}
+
+.about-content {
+    max-width: 1200px;
+    position: relative;
+    z-index: 2; /* Ensures content stays above background effects */
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/* Flexbox row for Bio text and Profile visuals */
+.about-main-row {
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+    max-width: 1100px;
+}
+
+
+.about-header, .skills-title, .skill-category { text-align: center; }
+
+.about-title { font-size: 3rem; margin-bottom: 1rem; }
+
+.about-title .highlight {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+}
+
+.about-tagline {
+    font-size: 1.2rem;
+    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-text-col { flex: 1.2; } /* Giving the bio slightly more space than the image */
+.about-text-col p {
+    font-size: 1.15rem;
+    line-height: 1.8; /* Increased line-height for better readability */
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+}
+
+
+.about-visual-col {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Profile Picture with a glowing neon border */
+.profile-frame {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--neon-cyan), #7f00ff);
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #05070c;
+}
+
+/* Reusable Card Style */
+.education-card, .skill-category {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    backdrop-filter: blur(10px); /* Blurs the background behind the card */
+}
+
+
+.skills-section {
+    padding-top: 3rem;
+    border-top: 1px solid var(--border-light);
+}
+
+/* Grid Layout for Skill Categories */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3-column layout */
+    gap: 2rem;
+}
+
+.skill-category {
+    padding: 2rem;
+    border-radius: 16px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+/* Interactive lift effect on hover */
+.skill-category:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-cyan);
+}
+
+.skill-tag {
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-light);
+    color: #eee;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+/* Skills hover state with neon glow */
+.skill-tag:hover {
+    background: rgba(0, 242, 255, 0.1);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px var(--neon-glow);
+}
+
+
+@media (max-width: 968px) {
+    /* Stack the bio and image vertically on smaller screens */
+    .about-main-row { 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 3rem; 
+    }
+    
+    .about-text-col { 
+        order: 2; /* Moves text below the image on mobile */
+        text-align: center; 
+    }
+    
+    .about-visual-col { order: 1; }
+
+    /* Switch skills grid to a single column for mobile readability */
+    .skills-grid { 
+        grid-template-columns: 1fr; 
+        max-width: 500px; 
+        margin: 0 auto; 
+    }
+}

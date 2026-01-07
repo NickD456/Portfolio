@@ -1,0 +1,76 @@
+/* ===== GLOBAL RESET & THEME VARIABLES ===== */
+:root {
+  --main-bg: #05070c;
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --neon-gradient: linear-gradient(270deg, #7f00ff, #00ffff, #ff007f, #7f00ff);
+  
+  /* Shared transitions for the whole site */
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root, .app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--main-bg);
+  font-family: var(--font-main);
+  color: #ffffff;
+  /* Scroll behavior for a smoother "Mission Log" feel */
+  scroll-behavior: smooth;
+}
+
+/* Ensure the app allows content to stack vertically naturally */
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== SHARED HERO TYPOGRAPHY ===== */
+.hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.intro, .subtitle {
+  opacity: 0.8;
+  margin: 0;
+}
+
+.intro { 
+  font-size: clamp(1.2rem, 3vw, 1.5rem); 
+}
+
+.subtitle { 
+  font-size: clamp(1.4rem, 4vw, 1.8rem); 
+  font-weight: 400;
+}
+
+/* ===== ANIMATED NAME GRADIENT ===== */
+.name {
+  font-size: clamp(2.5rem, 10vw, 4.5rem);
+  font-weight: 800;
+  margin: 0.5rem 0;
+  
+  /* Gradient Clipping */
+  background: var(--neon-gradient);
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  animation: gradientAnimation 8s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
